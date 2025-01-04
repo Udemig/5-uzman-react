@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { v4 } from "uuid";
+import Card from "../Card";
 const Form = () => {
   const [books, setBooks] = useState([]);
-
+  // Form gönderildiğinde çalışacak fonksiyon
   const handleSubmit = (e) => {
     // Sayfa Yenilemeyi iptal et
     e.preventDefault();
@@ -46,7 +47,16 @@ const Form = () => {
     toast.success("Kitap başarıyla eklendi");
   };
 
-  console.log(books);
+  // Silme işlemi gerçekleştiren fonksiyon
+  const handleDelete = (delete_id) => {
+    // İd'si bilinen elemanı diziden kaldır
+    const filtredBooks = books.filter((book) => book.id != delete_id);
+    // Books state'ini güncelle
+    setBooks(filtredBooks);
+
+    // Kullanıcıya bir bildirim gönder
+    toast.error("Kitap başarıyla silindi");
+  };
 
   return (
     <>
@@ -55,9 +65,11 @@ const Form = () => {
         <button className="btn btn-warning shadow">Ekle</button>
       </form>
 
-      {books.map((book) => (
-        <h1>{book.bookName} </h1>
-      ))}
+      <div className="d-flex flex-column gap-5 m-5">
+        {books.map((book) => (
+          <Card book={book} key={book.id} handleDelete={handleDelete} />
+        ))}
+      </div>
     </>
   );
 };
