@@ -1,0 +1,32 @@
+.container {
+  padding: 20px 30px;
+  text-align: center;
+}
+
+.counter-wrapper {
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.counter-wrapper span {
+  font-size: 40px;
+}
+
+.counter-wrapper button {
+  border: none;
+  outline: none;
+  padding: 10px 15px;
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.increase {
+  background-color: green;
+}
+.decrease {
+  background-color: crimson;
+}

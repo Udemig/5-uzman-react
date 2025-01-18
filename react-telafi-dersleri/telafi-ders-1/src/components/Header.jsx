@@ -1,4 +1,7 @@
 const Header = () => {
+  const giveAlert = () => {
+    alert("Uyarııı");
+  };
   return (
     <header>
       <a href="#" className="logo">
@@ -14,7 +17,7 @@ const Header = () => {
         <a href="#">Sosyal Medya</a>
       </nav>
 
-      <button>Giriş Yap</button>
+      <button onClick={() => giveAlert()}>Giriş Yap</button>
     </header>
   );
 };
